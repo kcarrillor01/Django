@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>       
+        <h1>Registrar libro</h1><br><br>
+        <a href="{%  url 'presentacion' %}">Ir a inicio</a>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for campo in formulario %}
+                <label>{{campo.label}}</label>
+                <input type="{{campo.field.widget.input_type}}" name="{{campo.name}}" placeholder="{{campo.label}}">
+                <br>
+                 <div>{{campo.errors}}</div>
+            {%endfor%}
+            <input type="submit", value="Resgistrar"></input>
+        </form>    
+    </body>
+</html>
